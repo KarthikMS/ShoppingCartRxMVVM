@@ -1,0 +1,6 @@
+framework module Pods_ShoppingRxMVVMTests {
+  umbrella header "Pods-ShoppingRxMVVMTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

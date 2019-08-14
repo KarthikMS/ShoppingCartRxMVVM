@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ok7-Vj-5fG">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Shop View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ShopViewController" customModule="ShoppingRxMVVM" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="5fj-ah-SGm">
+                        <barButtonItem key="rightBarButtonItem" title="Cart" id="VN8-XB-75l">
+                            <connections>
+                                <segue destination="Tqn-KF-wfu" kind="show" id="6IT-yi-toU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cartButton" destination="VN8-XB-75l" id="z49-wu-2W1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="767"/>
+        </scene>
+        <!--Cart View Controller-->
+        <scene sceneID="v1e-Kx-l1P">
+            <objects>
+                <viewController id="Tqn-KF-wfu" customClass="CartViewController" customModule="ShoppingRxMVVM" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gMN-0p-vqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1842" y="767"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gWL-U2-0ZK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ok7-Vj-5fG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BZ1-TA-Zvp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="77Q-gt-V2D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Av2-Jr-UGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69.565217391304358" y="767.41071428571422"/>
+        </scene>
+    </scenes>
+</document>

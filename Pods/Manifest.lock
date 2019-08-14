@@ -1,0 +1,36 @@
+PODS:
+  - ReusableKit (3.0.0):
+    - ReusableKit/Core (= 3.0.0)
+  - ReusableKit/Core (3.0.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+  - Toast-Swift (5.0.0)
+
+DEPENDENCIES:
+  - ReusableKit
+  - RxCocoa
+  - RxSwift
+  - Toast-Swift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ReusableKit
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  ReusableKit: e5f853ad4652e411f96b6119b2488afa12929be6
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  Toast-Swift: 36f4720243c8582c2be243a60a51e193c761f541
+
+PODFILE CHECKSUM: 0f9b9a5c7afdb5e27bd1506c53d55cb03e9772bc
+
+COCOAPODS: 1.7.2
