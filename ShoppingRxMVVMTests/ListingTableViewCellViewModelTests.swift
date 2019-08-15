@@ -74,16 +74,16 @@ class ListingTableViewCellViewModelTests: XCTestCase {
 
 	/// Testing if addToCartButton is disabled when 10 items are in cart.
 	func testAddButtonIsEnabled() {
-		viewModel.performAction(.addItemToCart) // 1
-		viewModel.performAction(.addItemToCart) // 2
-		viewModel.performAction(.addItemToCart) // 3
-		viewModel.performAction(.addItemToCart) // 4
-		viewModel.performAction(.addItemToCart) // 5
-		viewModel.performAction(.addItemToCart) // 6
-		viewModel.performAction(.addItemToCart) // 7
-		viewModel.performAction(.addItemToCart) // 8
-		viewModel.performAction(.addItemToCart) // 9
-		viewModel.performAction(.addItemToCart) // 10
+		viewModel.performAction(.addItemToCart) // itemsInCart: 1
+		viewModel.performAction(.addItemToCart) // itemsInCart: 2
+		viewModel.performAction(.addItemToCart) // itemsInCart: 3
+		viewModel.performAction(.addItemToCart) // itemsInCart: 4
+		viewModel.performAction(.addItemToCart) // itemsInCart: 5
+		viewModel.performAction(.addItemToCart) // itemsInCart: 6
+		viewModel.performAction(.addItemToCart) // itemsInCart: 7
+		viewModel.performAction(.addItemToCart) // itemsInCart: 8
+		viewModel.performAction(.addItemToCart) // itemsInCart: 9
+		viewModel.performAction(.addItemToCart) // itemsInCart: 10
 
 		do {
 			let addButtonEnabled = try viewModel.addButtonEnabled.value()

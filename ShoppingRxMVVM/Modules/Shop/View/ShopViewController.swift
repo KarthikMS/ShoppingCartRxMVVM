@@ -12,13 +12,15 @@ import RxCocoa
 import ReusableKit
 import Toast_Swift
 
+// TODO: Add "Cart" to cart button and enable or disable based on isEmpty
+
 class ShopViewController: UIViewController {
 	// MARK: - IBOutlets
 	@IBOutlet private weak var listingTableView: UITableView!
 	@IBOutlet private weak var cartButton: UIBarButtonItem!
 //	show totalAmount along with item count
 
-	// MARK: - Properties
+	// MARK: - Dependencies
 	private let viewModel = ShopViewModel(dataSource: ShopDataSourceImpl())
 
 	// MARK: - Constants
@@ -47,6 +49,22 @@ extension ShopViewController {
 			completion: nil
 		)
 	}
+
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		guard let identifier = segue.identifier else {
+			return
+		}
+		switch identifier {
+		case ShopToCartSegueIdentifier:
+			guard let cartViewController = segue.destination as? CartViewController else {
+				assertionFailure()
+				return
+			}
+			cartViewController.setup(shopViewModel: viewModel)
+		default:
+			break
+		}
+	}
 }
 
 // MARK: - Setup
@@ -63,7 +81,7 @@ private extension ShopViewController {
 			.bind(to: cartButton.rx.title)
 			.disposed(by: disposeBag)
 
-		viewModel.allItems.asObservable()
+		viewModel.allItems
 			.bind(to: listingTableView.rx.items(cellIdentifier: "cell", cellType: ListingTableViewCell.self)) { [weak self] (_, item, cell) in
 				if let viewModel = self?.viewModel {
 					cell.setUp(shopViewModel: viewModel, item: item)

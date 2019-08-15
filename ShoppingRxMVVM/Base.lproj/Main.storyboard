@@ -16,7 +16,7 @@
                     <navigationItem key="navigationItem" id="5fj-ah-SGm">
                         <barButtonItem key="rightBarButtonItem" title="Cart" id="VN8-XB-75l">
                             <connections>
-                                <segue destination="Tqn-KF-wfu" kind="show" id="6IT-yi-toU"/>
+                                <segue destination="Tqn-KF-wfu" kind="show" identifier="ShopToCartSegue" id="6IT-yi-toU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -31,10 +31,22 @@
         <!--Cart View Controller-->
         <scene sceneID="v1e-Kx-l1P">
             <objects>
-                <viewController id="Tqn-KF-wfu" customClass="CartViewController" customModule="ShoppingRxMVVM" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController id="Tqn-KF-wfu" customClass="CartViewController" customModule="ShoppingRxMVVM" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="Qdz-dR-7S6" kind="show" identifier="CartToPaymentSegue" id="Ule-1n-aUd"/>
+                    </connections>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMN-0p-vqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1842" y="767"/>
+        </scene>
+        <!--Payment View Controller-->
+        <scene sceneID="fgD-N7-efI">
+            <objects>
+                <viewController id="Qdz-dR-7S6" customClass="PaymentViewController" customModule="ShoppingRxMVVM" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NVu-sC-N6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2649" y="767"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gWL-U2-0ZK">

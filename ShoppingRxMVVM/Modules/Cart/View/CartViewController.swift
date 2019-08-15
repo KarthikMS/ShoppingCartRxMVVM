@@ -7,24 +7,71 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class CartViewController: UIViewController {
+	// MARK: - IBOutlets
+	@IBOutlet private weak var emptyCartButton: UIButton!
+	@IBOutlet private weak var listingTableView: UITableView!
+	@IBOutlet private weak var totalAmountLabel: UILabel!
+	@IBOutlet private weak var proceedToPayButton: UIButton!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	// MARK: - Dependencies
+	private var viewModel: CartViewModel?
 
-        // Do any additional setup after loading the view.
-    }
+	// MARK: - Util
+	private let disposeBag = DisposeBag()
+}
 
+// MARK: - View Life Cycle
+extension CartViewController {
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		configureTableView()
+		bindRx()
+	}
+}
 
-    /*
-    // MARK: - Navigation
+// MARK: - Setup
+extension CartViewController {
+	func setup(shopViewModel: ShopViewModel) {
+		viewModel = CartViewModel(shopViewModel: shopViewModel)
+	}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+	private func configureTableView() {
+		listingTableView.register(UINib(nibName: "ListingTableViewCell", bundle: nil), forCellReuseIdentifier: "cartCell")
+		//		listingTableView.register(ListingCell)
+		listingTableView.allowsSelection = false
+	}
 
+	private func bindRx() {
+		guard let viewModel = viewModel else {
+			assertionFailure()
+			return
+		}
+
+		viewModel.items
+			.bind(to: listingTableView.rx.items(cellIdentifier: "cartCell", cellType: ListingTableViewCell.self)) { [weak self] (_, item, cell) in
+				if let viewModel = self?.viewModel {
+					cell.setUp(shopViewModel: viewModel.shopViewModel, item: item)
+				}
+			}
+			.disposed(by: disposeBag)
+
+		viewModel.totalAmountString
+			.bind(to: totalAmountLabel.rx.text)
+			.disposed(by: disposeBag)
+
+		emptyCartButton.rx.tap
+			.subscribe(onNext: { viewModel.performAction(.emptyCart) })
+			.disposed(by: disposeBag)
+
+		viewModel.shouldReturnToShop
+			.observeOn(MainScheduler.instance)
+			.subscribe(onNext: { [weak self] shouldReturn in
+				if shouldReturn { self?.navigationController?.popViewController(animated: true) }
+			})
+			.disposed(by: disposeBag)
+	}
 }

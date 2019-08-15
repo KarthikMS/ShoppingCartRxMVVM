@@ -37,4 +37,8 @@ class ShoppingCart {
 		}
 	}
 
+	func emptyCart() {
+		items.onNext([])
+	}
+
 }

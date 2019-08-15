@@ -13,6 +13,7 @@ class ShopViewModel {
 	enum Action {
 		case addItemToCart(_ item: ShoppingItem)
 		case removeItemFromCart(_ item: ShoppingItem)
+		case emptyCart
 	}
 
 	// MARK: - Dependencies
@@ -49,17 +50,11 @@ extension ShopViewModel {
 	func performAction(_ action: Action) {
 		switch action {
 		case .addItemToCart(let item):
-			addItemToCart(item)
+			shoppingCart.addItem(item)
 		case .removeItemFromCart(let item):
-			removeItemFromCart(item)
+			shoppingCart.removeItem(item)
+		case .emptyCart:
+			shoppingCart.emptyCart()
 		}
-	}
-
-	private func addItemToCart(_ item: ShoppingItem) {
-		shoppingCart.addItem(item)
-	}
-
-	private func removeItemFromCart(_ item: ShoppingItem) {
-		shoppingCart.removeItem(item)
 	}
 }

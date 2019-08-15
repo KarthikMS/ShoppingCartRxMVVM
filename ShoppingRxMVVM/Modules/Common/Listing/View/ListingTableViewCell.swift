@@ -26,7 +26,14 @@ class ListingTableViewCell: UITableViewCell {
 	@IBOutlet private weak var quantityInCartLabel: UILabel!
 
 	// MARK: - Util
-	private let disposeBag = DisposeBag()
+	private var disposeBag = DisposeBag()
+}
+
+// MARK: - View Life Cycle
+extension ListingTableViewCell {
+	override func prepareForReuse() {
+		disposeBag = DisposeBag()
+	}
 }
 
 // MARK: - Setup
