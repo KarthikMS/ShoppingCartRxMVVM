@@ -11,3 +11,4 @@ import Foundation
 // MARK: - Segues
 let ShopToCartSegueIdentifier = "ShopToCartSegue"
 let CartToPaymentSegueIdentifier = "CartToPaymentSegue"
+let PaymentToSuccessIdentifier = "PaymentToSuccess"

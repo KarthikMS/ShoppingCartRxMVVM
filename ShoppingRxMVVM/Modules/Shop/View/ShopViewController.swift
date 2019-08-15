@@ -60,7 +60,7 @@ extension ShopViewController {
 				assertionFailure()
 				return
 			}
-			cartViewController.setup(shopViewModel: viewModel)
+			cartViewController.setUp(shopViewModel: viewModel)
 		default:
 			break
 		}

@@ -43,7 +43,11 @@
         <!--Payment View Controller-->
         <scene sceneID="fgD-N7-efI">
             <objects>
-                <viewController id="Qdz-dR-7S6" customClass="PaymentViewController" customModule="ShoppingRxMVVM" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController id="Qdz-dR-7S6" customClass="PaymentViewController" customModule="ShoppingRxMVVM" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="UJV-hi-qO9" kind="show" identifier="PaymentToSuccess" id="oJR-ln-pu9"/>
+                    </connections>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVu-sC-N6I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2649" y="767"/>
@@ -65,6 +69,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Av2-Jr-UGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="69.565217391304358" y="767.41071428571422"/>
+        </scene>
+        <!--Success View Controller-->
+        <scene sceneID="RJC-QW-wOB">
+            <objects>
+                <viewController id="UJV-hi-qO9" customClass="SuccessViewController" customModule="ShoppingRxMVVM" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xMb-54-HV7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3483" y="767"/>
         </scene>
     </scenes>
 </document>

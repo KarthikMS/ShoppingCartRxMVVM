@@ -51,7 +51,7 @@ private extension CartViewModel {
 		shopViewModel.itemsInCart
 			.subscribe(onNext: { [weak self] items in
 				let totalAmount = items.reduce(0, { total, item in total + item.price })
-				self?.totalAmountString.onNext(String(totalAmount))
+				self?.totalAmountString.onNext("Total: \(totalAmount)")
 			})
 			.disposed(by: disposeBag)
 

@@ -7,24 +7,43 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class SuccessViewController: UIViewController {
+	// MARK: - IBOutlets
+	@IBOutlet private weak var messageLabel: UILabel!
+	
+	// MARK: - Properties
+	private var viewModel: SuccessViewModel?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	// MARK: - Util
+	private let disposeBag = DisposeBag()
+}
 
-        // Do any additional setup after loading the view.
-    }
+// MARK: - View Life Cycle
+extension SuccessViewController {
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		bindRx()
+	}
+}
 
+// MARK: - Setup
+extension SuccessViewController {
+	func setUp(shopViewModel: ShopViewModel) {
+		self.viewModel = SuccessViewModel(shopViewModel: shopViewModel)
+	}
 
-    /*
-    // MARK: - Navigation
+	func bindRx() {
+		guard let viewModel = viewModel else {
+			assertionFailure()
+			return
+		}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+		viewModel.message
+			.asDriver(onErrorJustReturn: "Oops, there seems to be an error.")
+			.drive(messageLabel.rx.text)
+			.disposed(by: disposeBag)
+	}
 }

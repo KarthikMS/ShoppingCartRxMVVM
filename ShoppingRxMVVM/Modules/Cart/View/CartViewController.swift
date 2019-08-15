@@ -28,14 +28,32 @@ class CartViewController: UIViewController {
 extension CartViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.title = "Cart"
 		configureTableView()
 		bindRx()
+	}
+
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		guard let identifier = segue.identifier else {
+			return
+		}
+		switch identifier {
+		case CartToPaymentSegueIdentifier:
+			guard let paymentViewController = segue.destination as? PaymentViewController,
+				let shopViewModel = viewModel?.shopViewModel else {
+					assertionFailure()
+					return
+			}
+			paymentViewController.setUp(shopViewModel: shopViewModel)
+		default:
+			break
+		}
 	}
 }
 
 // MARK: - Setup
 extension CartViewController {
-	func setup(shopViewModel: ShopViewModel) {
+	func setUp(shopViewModel: ShopViewModel) {
 		viewModel = CartViewModel(shopViewModel: shopViewModel)
 	}
 
@@ -72,6 +90,10 @@ extension CartViewController {
 			.subscribe(onNext: { [weak self] shouldReturn in
 				if shouldReturn { self?.navigationController?.popViewController(animated: true) }
 			})
+			.disposed(by: disposeBag)
+
+		proceedToPayButton.rx.tap
+			.subscribe(onNext: { [weak self] in self?.performSegue(withIdentifier: CartToPaymentSegueIdentifier, sender: nil) })
 			.disposed(by: disposeBag)
 	}
 }

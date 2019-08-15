@@ -25,7 +25,7 @@ class CartViewModelTests: XCTestCase {
 			let totalAmountString = try viewModel.totalAmountString.value()
 			let shouldReturnToShop = try viewModel.shouldReturnToShop.value()
 			XCTAssert(items.isEmpty)
-			XCTAssertEqual(totalAmountString, "0")
+			XCTAssertEqual(totalAmountString, "Total: 0")
 			XCTAssertEqual(shouldReturnToShop, true)
 		} catch {
 			assertionFailure(error.localizedDescription)
@@ -49,7 +49,7 @@ class CartViewModelTests: XCTestCase {
 			XCTAssertEqual(items.count, 2)
 			XCTAssertEqual(items[0].id, ball.id)
 			XCTAssertEqual(items[1].id, perfume.id)
-			XCTAssertEqual(totalAmountString, "90")
+			XCTAssertEqual(totalAmountString, "Total: 90")
 			XCTAssertEqual(shouldReturnToShop, false)
 		} catch {
 			assertionFailure(error.localizedDescription)
@@ -73,7 +73,7 @@ class CartViewModelTests: XCTestCase {
 			XCTAssertEqual(items.count, 2)
 			XCTAssertEqual(items[0].id, ball.id)
 			XCTAssertEqual(items[1].id, perfume.id)
-			XCTAssertEqual(totalAmountString, "70")
+			XCTAssertEqual(totalAmountString, "Total: 70")
 			XCTAssertEqual(shouldReturnToShop, false)
 		} catch {
 			assertionFailure(error.localizedDescription)
@@ -97,7 +97,7 @@ class CartViewModelTests: XCTestCase {
 			let totalAmountString = try viewModel.totalAmountString.value()
 			let shouldReturnToShop = try viewModel.shouldReturnToShop.value()
 			XCTAssert(items.isEmpty)
-			XCTAssertEqual(totalAmountString, "0")
+			XCTAssertEqual(totalAmountString, "Total: 0")
 			XCTAssertEqual(shouldReturnToShop, true)
 		} catch {
 			assertionFailure(error.localizedDescription)
@@ -116,7 +116,7 @@ class CartViewModelTests: XCTestCase {
 			let totalAmountString = try viewModel.totalAmountString.value()
 			let shouldReturnToShop = try viewModel.shouldReturnToShop.value()
 			XCTAssert(items.isEmpty)
-			XCTAssertEqual(totalAmountString, "0")
+			XCTAssertEqual(totalAmountString, "Total: 0")
 			XCTAssertEqual(shouldReturnToShop, true)
 		} catch {
 			assertionFailure(error.localizedDescription)

@@ -35,6 +35,14 @@
 		D90C6F2123040F110054FC45 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90C6F2023040F110054FC45 /* AppConstants.swift */; };
 		D90C6F23230412BE0054FC45 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90C6F22230412BE0054FC45 /* CartViewModel.swift */; };
 		D90C6F262304FB930054FC45 /* CartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90C6F252304FB930054FC45 /* CartViewModelTests.swift */; };
+		D90C6F2B23050A890054FC45 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90C6F2A23050A890054FC45 /* PaymentViewModel.swift */; };
+		D90C6F2D230520C20054FC45 /* PaymentField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90C6F2C230520C20054FC45 /* PaymentField.swift */; };
+		D90C6F30230520FE0054FC45 /* CreditCardNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90C6F2F230520FE0054FC45 /* CreditCardNumberField.swift */; };
+		D90C6F32230522010054FC45 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90C6F31230522010054FC45 /* StringUtil.swift */; };
+		D90C6F34230522580054FC45 /* CVVField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90C6F33230522580054FC45 /* CVVField.swift */; };
+		D90C6F3623052A140054FC45 /* SuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90C6F3523052A140054FC45 /* SuccessViewModel.swift */; };
+		D90C6F3923052EB90054FC45 /* PaymentViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90C6F3823052EB90054FC45 /* PaymentViewModelTests.swift */; };
+		D90C6F3B230530070054FC45 /* SuccessViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90C6F3A230530070054FC45 /* SuccessViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +91,14 @@
 		D90C6F2023040F110054FC45 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		D90C6F22230412BE0054FC45 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		D90C6F252304FB930054FC45 /* CartViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModelTests.swift; sourceTree = "<group>"; };
+		D90C6F2A23050A890054FC45 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		D90C6F2C230520C20054FC45 /* PaymentField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentField.swift; sourceTree = "<group>"; };
+		D90C6F2F230520FE0054FC45 /* CreditCardNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardNumberField.swift; sourceTree = "<group>"; };
+		D90C6F31230522010054FC45 /* StringUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
+		D90C6F33230522580054FC45 /* CVVField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVVField.swift; sourceTree = "<group>"; };
+		D90C6F3523052A140054FC45 /* SuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewModel.swift; sourceTree = "<group>"; };
+		D90C6F3823052EB90054FC45 /* PaymentViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModelTests.swift; sourceTree = "<group>"; };
+		D90C6F3A230530070054FC45 /* SuccessViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewModelTests.swift; sourceTree = "<group>"; };
 		EB23A4D27AAD259FE975A1A6 /* Pods_ShoppingRxMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoppingRxMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -158,6 +174,8 @@
 				D90C6F122303E60A0054FC45 /* ShopViewModelTests.swift */,
 				D90C6F162303FCC90054FC45 /* ListingTableViewCellViewModelTests.swift */,
 				D90C6F252304FB930054FC45 /* CartViewModelTests.swift */,
+				D90C6F3823052EB90054FC45 /* PaymentViewModelTests.swift */,
+				D90C6F3A230530070054FC45 /* SuccessViewModelTests.swift */,
 				D90C6EDA230326BC0054FC45 /* Info.plist */,
 			);
 			path = ShoppingRxMVVMTests;
@@ -196,7 +214,10 @@
 		D90C6EF82303285E0054FC45 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				D90C6F2E230520E40054FC45 /* Model */,
 				D90C6EFC230328800054FC45 /* View */,
+				D90C6F2923050A5E0054FC45 /* ViewModel */,
+				D90C6F31230522010054FC45 /* StringUtil.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -205,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				D90C6EFD230328870054FC45 /* View */,
+				D90C6F3723052A1C0054FC45 /* ViewModel */,
 			);
 			path = Success;
 			sourceTree = "<group>";
@@ -303,6 +325,32 @@
 			isa = PBXGroup;
 			children = (
 				D90C6F22230412BE0054FC45 /* CartViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D90C6F2923050A5E0054FC45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D90C6F2A23050A890054FC45 /* PaymentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D90C6F2E230520E40054FC45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D90C6F2C230520C20054FC45 /* PaymentField.swift */,
+				D90C6F2F230520FE0054FC45 /* CreditCardNumberField.swift */,
+				D90C6F33230522580054FC45 /* CVVField.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D90C6F3723052A1C0054FC45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D90C6F3523052A140054FC45 /* SuccessViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -489,17 +537,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D90C6F30230520FE0054FC45 /* CreditCardNumberField.swift in Sources */,
 				D90C6EE7230327B50054FC45 /* CartViewController.swift in Sources */,
 				D90C6F152303E94E0054FC45 /* ListingTableViewCellViewModel.swift in Sources */,
+				D90C6F32230522010054FC45 /* StringUtil.swift in Sources */,
 				D90C6EFF230328A10054FC45 /* ShopViewModel.swift in Sources */,
 				D90C6F03230334050054FC45 /* ListingTableViewCell.swift in Sources */,
+				D90C6F2D230520C20054FC45 /* PaymentField.swift in Sources */,
 				D90C6F0D230337E70054FC45 /* ShopDataSourceImpl.swift in Sources */,
+				D90C6F34230522580054FC45 /* CVVField.swift in Sources */,
 				D90C6F09230336800054FC45 /* ShopDataSource.swift in Sources */,
 				D90C6F23230412BE0054FC45 /* CartViewModel.swift in Sources */,
 				D90C6EEB230327C80054FC45 /* PaymentViewController.swift in Sources */,
+				D90C6F3623052A140054FC45 /* SuccessViewModel.swift in Sources */,
 				D90C6EC9230326B60054FC45 /* ShoppingRxMVVM.xcdatamodeld in Sources */,
 				D90C6F0F2303405B0054FC45 /* ShoppingCart.swift in Sources */,
 				D90C6EF32303282A0054FC45 /* ShopViewController.swift in Sources */,
+				D90C6F2B23050A890054FC45 /* PaymentViewModel.swift in Sources */,
 				D90C6F06230335980054FC45 /* ShoppingItem.swift in Sources */,
 				D90C6F2123040F110054FC45 /* AppConstants.swift in Sources */,
 				D90C6EEF230327D90054FC45 /* SuccessViewController.swift in Sources */,
@@ -512,8 +566,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D90C6F132303E60A0054FC45 /* ShopViewModelTests.swift in Sources */,
+				D90C6F3B230530070054FC45 /* SuccessViewModelTests.swift in Sources */,
 				D90C6F262304FB930054FC45 /* CartViewModelTests.swift in Sources */,
 				D90C6F172303FCC90054FC45 /* ListingTableViewCellViewModelTests.swift in Sources */,
+				D90C6F3923052EB90054FC45 /* PaymentViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
